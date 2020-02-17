@@ -18,7 +18,6 @@ public class Homework2 {
 
         //2.Asking user for inputs with local method
         System.out.println("All set. Get ready to rumble!");
-        System.out.println(targetRow+ " " +targetCol);
         printSquare(width, height, line, bar, targetRow, targetCol, status,  square);
         while(line !=targetRow || bar != targetCol) {
             System.out.print("Please choose line: ");
