@@ -1,11 +1,8 @@
 package hw02;
-
 import java.util.Scanner;
-
 public class Homework2 {
     public static void main(String[] args) {
 
-        //1.Creating initial variables
         int width = 6;
         int height = 6;
         int targetRow = (int)(Math.random() * (((width-1) - 1) + 1)) + 1;
@@ -15,24 +12,35 @@ public class Homework2 {
         String status ="";
         String[][] square = new String[width][height];
         Scanner scanner = new Scanner(System.in);
-
-        //2.Asking user for inputs with local method
         System.out.println("All set. Get ready to rumble!");
+        System.out.println(targetRow+ " " +targetCol);
         printSquare(width, height, line, bar, targetRow, targetCol, status,  square);
+
         while(line !=targetRow || bar != targetCol) {
-            System.out.print("Please choose line: ");
-            line = scanner.nextInt();
 
+            try{
+                System.out.print("Please choose line: ");
+                line = Integer.parseInt(scanner.nextLine());
+                System.out.print("Please choose bar: ");
+                bar = Integer.parseInt(scanner.nextLine());
+                printSquare(width, height, line, bar, targetRow, targetCol, status,  square);
 
-            System.out.print("Please choose bar: ");
-            bar = scanner.nextInt();
+                if (line<1 || line>=width || bar<1 || bar>=width) {
+                    System.out.println("Your input is not valid!");
+                    line = 0;
+                    bar = 0;
+                }
 
-            printSquare(width, height, line, bar, targetRow, targetCol, status,  square);
+            }
+            catch(Exception e) {
+                System.out.println("Your input is not valid!");
+                line = 0;
+                bar = 0;
+            }
+
         }
 
     }
-
-    //Local method
     private static void printSquare(int width, int height, int line, int bar, int targetRow, int targetCol, String status,  String[][] square) {
         for (int cell = 0; cell < width; cell++) {
             square[0][cell] = cell + "|";
@@ -40,7 +48,6 @@ public class Homework2 {
         }
 
         for (int row = 0; row <width ; row++) {
-
             for (int col = 0; col < height ; col++) {
                 if (row !=0 && col !=0 && !square[line][bar].equals("*|") && !square[line][bar].equals("X|")) {
                     square[row][col] = "-|";
@@ -54,10 +61,8 @@ public class Homework2 {
                 }
                 System.out.print(square[row][col]);
             }
-
             System.out.println("");
         }
         System.out.print(status);
-
     }
 }
