@@ -4,48 +4,47 @@ import java.util.Arrays;
 
 public class Pet {
 
-    public Pet() {
-    }
+  public Pet() {
 
-    public Pet(String species, String nickname) {
-        this.species = species;
-        this.nickname = nickname;
-    }
+  }
 
-    public Pet(String species, String nickname, int age, int trickLevel, String[] habits) {
-        this.species = species;
-        this.nickname = nickname;
-        this.age = age;
-        this.trickLevel = trickLevel;
-        this.habits = habits;
-    }
+  public Pet(String species, String nickname) {
+    this.species = species;
+    this.nickname = nickname;
+  }
 
-    String species;
-    String nickname;
-    int age;
-    int trickLevel;
-    String[] habits;
+  public Pet(String species, String nickname, int age, int trickLevel, String[] habits) {
+    this.species = species;
+    this.nickname = nickname;
+    this.age = age;
+    this.trickLevel = trickLevel;
+    this.habits = habits;
+  }
 
-    void eat() {
-        System.out.printf("I am eating\n");
-    }
+  String species;
+  String nickname;
+  int age;
+  int trickLevel;
+  String[] habits;
 
-    void respond() {
-        System.out.printf("Hello, owner. I am - %s. I miss you!\n", nickname);
-    }
+  String eat() {
+    return "I am eating.\n";
+  }
 
-    void foul() {
-        System.out.printf("I need to cover it up");
-    }
+  String respond() {
+    return String.format("Hello, owner. I am - %s. I miss you!\n", nickname);
+  }
 
-    @Override
-    public String toString() {
-        return species + "{" +
-                "species='" + species + '\'' +
-                ", nickname='" + nickname + '\'' +
-                ", age=" + age +
-                ", trickLevel=" + trickLevel +
-                ", habits=" + Arrays.toString(habits) +
-                '}';
-    }
+  String foul() {
+    return "I need to cover it up.\n";
+  }
+
+  @Override
+  public String toString() {
+    return  species + "{" + "nickname='" + nickname + '\'' +
+            ", age='" + age + '\'' +
+            ", trickLevel=" + trickLevel +
+            ", habits='" + Arrays.toString(habits) + '\'' +
+            '}';
+  }
 }
