@@ -76,7 +76,7 @@ public class Family {
   }
 
   String countFamily() {
-    return String.format("Count of family: %s \n", childIndex+2);
+    return String.format("Count of family: %s", childIndex+2);
   }
 
   @Override
