@@ -4,6 +4,12 @@ import java.util.Arrays;
 
 public class Pet {
 
+  String species;
+  String nickname;
+  int age;
+  int trickLevel;
+  String[] habits;
+
   public Pet() {
 
   }
@@ -21,11 +27,6 @@ public class Pet {
     this.habits = habits;
   }
 
-  String species;
-  String nickname;
-  int age;
-  int trickLevel;
-  String[] habits;
 
   String eat() {
     return "I am eating.\n";

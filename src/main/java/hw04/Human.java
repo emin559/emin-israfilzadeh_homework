@@ -5,6 +5,15 @@ import java.util.Random;
 
 public class Human {
 
+  String name;
+  String surname;
+  int year;
+  int iq;
+  Pet pet;
+  Human mother;
+  Human father;
+  String[][] schedule;
+
   public Human() {
 
   }
@@ -34,14 +43,6 @@ public class Human {
     this.schedule = schedule;
   }
 
-  String name;
-  String surname;
-  int year;
-  int iq;
-  Pet pet;
-  Human mother;
-  Human father;
-  String[][] schedule;
 
   String greetPet() {
     return String.format("Hello, %s.\n", pet.nickname);

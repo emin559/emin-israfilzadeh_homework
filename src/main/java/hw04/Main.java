@@ -23,16 +23,16 @@ public class Main {
 
     Human mother = new Human("Magda", "Alderson", 1985);
     Human father = new Human("Edward", "Alderson", 1983);
-    Pet qwerty = new Pet("dog", "qwerty", 1, 55, qwertyHabits);
-    Human child = new Human("Eliot", "Alderson", 1991, 79, qwerty, mother, father, schedule);
+    Pet pet = new Pet("dog", "qwerty", 1, 55, qwertyHabits);
+    Human child = new Human("Eliot", "Alderson", 1991, 79, pet, mother, father, schedule);
 
     System.out.println(child.toString());
     System.out.print(child.greetPet());
     System.out.println(child.describePet());
-    System.out.println(qwerty.toString());
-    System.out.print(qwerty.eat());
-    System.out.print(qwerty.respond());
-    System.out.print(qwerty.foul());
+    System.out.println(pet.toString());
+    System.out.print(pet.eat());
+    System.out.print(pet.respond());
+    System.out.print(pet.foul());
 
     child.feedPet(false);
   }
