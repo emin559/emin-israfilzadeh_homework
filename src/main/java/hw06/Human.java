@@ -86,15 +86,6 @@ public class Human {
     this.schedule = schedule;
   }
 
-  enum DayOfWeek {
-    Monday,
-    Tuesday,
-    Wednesday,
-    Thursday,
-    Friday,
-    Saturday,
-    Sunday
-  }
 
   String greetPet() {
     return String.format("Hello, %s.\n", family.getPet().getNickname());
@@ -107,7 +98,7 @@ public class Human {
 
   String schedule(String[][] schedule){
     if(schedule != null) {
-      String scheduleString = "";
+      String scheduleString;
       StringBuilder str = new StringBuilder();
       str.append("[");
       for (String[] strings : schedule) {
@@ -160,8 +151,4 @@ public class Human {
             '}';
   }
 
-  @Override
-  protected void finalize() throws Throwable {
-    System.out.println("Garbage collector is going to delete this Human class");
-  }
 }

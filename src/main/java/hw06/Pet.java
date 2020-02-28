@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class Pet {
 
-  private Species species;
+  private requiredEnums.Species species;
   private String nickname;
   private int age;
   private int trickLevel;
@@ -15,12 +15,12 @@ public class Pet {
 
   }
 
-  public Pet(Species species, String nickname) {
+  public Pet(requiredEnums.Species species, String nickname) {
     this.species = species;
     this.nickname = nickname;
   }
 
-  public Pet(Species species, String nickname, int age, int trickLevel, String[] habits) {
+  public Pet(requiredEnums.Species species, String nickname, int age, int trickLevel, String[] habits) {
     this.species = species;
     this.nickname = nickname;
     this.age = age;
@@ -29,11 +29,11 @@ public class Pet {
   }
 
 
-  public Species getSpecies() {
+  public requiredEnums.Species getSpecies() {
     return species;
   }
 
-  public void setSpecies(Species species) {
+  public void setSpecies(requiredEnums.Species species) {
     this.species = species;
   }
 
@@ -69,14 +69,6 @@ public class Pet {
     this.habits = habits;
   }
 
-  enum Species {
-    Dog,
-    DomesticCat,
-    Fish,
-    Robocat,
-    Bird
-  }
-
   String eat() {
     return "I am eating.\n";
   }
@@ -98,8 +90,4 @@ public class Pet {
             '}';
   }
 
-  @Override
-  protected void finalize() throws Throwable {
-    System.out.println("Garbage collector is going to delete this Pet class");
-  }
 }

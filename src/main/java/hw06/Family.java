@@ -66,9 +66,8 @@ public class Family {
 
   boolean deleteChild(int index) {
     if (children[index] != null){
-      for (int i = index; i < children.length-1; i++) {
-        children[i] = children[i+1];
-      }
+      if (children.length - 1 - index >= 0)
+        System.arraycopy(children, index + 1, children, index, children.length - 1 - index);
       childIndex--;
       return true;
     }
@@ -109,11 +108,6 @@ public class Family {
     int result = Objects.hash(mother, father, childIndex);
     result = 31 * result + Arrays.hashCode(children);
     return result;
-  }
-
-  @Override
-  protected void finalize() throws Throwable {
-    System.out.println("Garbage collector is going to delete this Family class");
   }
 
 }
