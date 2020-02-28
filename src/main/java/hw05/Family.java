@@ -59,15 +59,16 @@ public class Family {
   }
 
   void addChild(Human child) {
-    children[childIndex] = child;
-    childIndex++;
+    if(childIndex<children.length){
+      children[childIndex] = child;
+      childIndex++;
+    }
   }
 
   boolean deleteChild(int index) {
-    if (!children[index].equals(null)){
-      for (int i = index; i < children.length-1; i++) {
-        children[i] = children[i+1];
-      }
+    if (!(children[index] == null)){
+      if (children.length - 1 - index >= 0)
+        System.arraycopy(children, index + 1, children, index, children.length - 1 - index);
       childIndex--;
       return true;
     }
@@ -75,8 +76,8 @@ public class Family {
     return false;
   }
 
-  String countFamily() {
-    return String.format("Count of family: %s", childIndex+2);
+  int countFamily() {
+    return  childIndex+2;
   }
 
   @Override

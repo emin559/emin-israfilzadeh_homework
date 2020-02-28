@@ -98,15 +98,15 @@ public class Human {
 
   String schedule(String[][] schedule){
     if(schedule != null) {
-      String scheduleString = "";
+      String scheduleString;
       StringBuilder str = new StringBuilder();
       str.append("[");
-      for (int day = 0; day < schedule.length; day++) {
+      for (String[] strings : schedule) {
         for (int task = 0; task < 1; task++) {
-          str.append(String.format("[%s: ", schedule[day][0]));
+          str.append(String.format("[%s: ", strings[0]));
         }
         for (int task = 0; task < 1; task++) {
-          str.append(String.format("%s], ", schedule[day][1]));
+          str.append(String.format("%s], ", strings[1]));
         }
 
       }
@@ -114,7 +114,7 @@ public class Human {
       scheduleString = str.toString();
       return scheduleString;
     }
-    return null;
+    return "";
   }
 
   boolean feedPet(boolean hungry) {
