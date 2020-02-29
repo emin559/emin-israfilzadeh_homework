@@ -1,5 +1,6 @@
 package hw06;
 
+import java.util.Arrays;
 import java.util.Random;
 
 public class Human {
@@ -96,7 +97,7 @@ public class Human {
     return String.format("I have a %s, he is %d years old, he is %s", family.getPet().getSpecies(), family.getPet().getAge(), trick);
   }
 
-  String schedule(String[][] schedule){
+ /* String schedule(String[][] schedule){
     if(schedule != null) {
       String scheduleString;
       StringBuilder str = new StringBuilder();
@@ -116,6 +117,8 @@ public class Human {
     }
     return null;
   }
+
+  */
 
   boolean feedPet(boolean hungry) {
     String hunger;
@@ -147,7 +150,7 @@ public class Human {
             ", surname='" + surname + '\'' +
             ", year=" + year +
             ", iq=" + iq +
-            ", schedule=" + schedule(schedule) +
+            ", schedule=" + Arrays.deepToString(schedule) +
             '}';
   }
 
