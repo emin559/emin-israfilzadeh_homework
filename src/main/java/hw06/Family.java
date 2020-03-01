@@ -17,6 +17,12 @@ public class Family {
     this.children = children;
   }
 
+  public Family(Human mother, Human father, Human[] children, Pet pet) {
+    this.mother = mother;
+    this.father = father;
+    this.children = children;
+    this.pet = pet;
+  }
 
   public Human getMother() {
     return mother;

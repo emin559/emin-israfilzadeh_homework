@@ -29,6 +29,14 @@ public class Human {
     this.family = family;
   }
 
+  public Human(String name, String surname, int year, int iq, String[][] schedule) {
+    this.name = name;
+    this.surname = surname;
+    this.year = year;
+    this.iq = iq;
+    this.schedule = schedule;
+  }
+
   public Human(String name, String surname, int year, int iq, Family family, String[][] schedule) {
     this.name = name;
     this.surname = surname;
@@ -152,6 +160,11 @@ public class Human {
             ", iq=" + iq +
             ", schedule=" + Arrays.deepToString(schedule) +
             '}';
+  }
+
+  @Override
+  protected void finalize() throws Throwable {
+    System.out.println("gc");
   }
 
 }

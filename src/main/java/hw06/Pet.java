@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class Pet {
 
-  private requiredEnums.Species species;
+  private Species species;
   private String nickname;
   private int age;
   private int trickLevel;
@@ -15,12 +15,12 @@ public class Pet {
 
   }
 
-  public Pet(requiredEnums.Species species, String nickname) {
+  public Pet(Species species, String nickname) {
     this.species = species;
     this.nickname = nickname;
   }
 
-  public Pet(requiredEnums.Species species, String nickname, int age, int trickLevel, String[] habits) {
+  public Pet(Species species, String nickname, int age, int trickLevel, String[] habits) {
     this.species = species;
     this.nickname = nickname;
     this.age = age;
@@ -29,11 +29,11 @@ public class Pet {
   }
 
 
-  public requiredEnums.Species getSpecies() {
+  public Species getSpecies() {
     return species;
   }
 
-  public void setSpecies(requiredEnums.Species species) {
+  public void setSpecies(Species species) {
     this.species = species;
   }
 
