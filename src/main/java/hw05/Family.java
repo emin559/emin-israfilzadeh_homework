@@ -17,6 +17,12 @@ public class Family {
     this.children = children;
   }
 
+  public Family(Human mother, Human father, Human[] children, Pet pet) {
+    this.mother = mother;
+    this.father = father;
+    this.children = children;
+    this.pet = pet;
+  }
 
   public Human getMother() {
     return mother;
@@ -59,25 +65,25 @@ public class Family {
   }
 
   void addChild(Human child) {
-    if(childIndex<children.length){
+    if (childIndex < children.length) {
       children[childIndex] = child;
       childIndex++;
     }
   }
 
   boolean deleteChild(int index) {
-    if (!(children[index] == null)){
+    if (!(children[index] == null)) {
       if (children.length - 1 - index >= 0)
         System.arraycopy(children, index + 1, children, index, children.length - 1 - index);
       childIndex--;
       return true;
     }
-    children= Arrays.copyOf(children, childIndex);
+    children = Arrays.copyOf(children, childIndex);
     return false;
   }
 
   int countFamily() {
-    return  childIndex+2;
+    return childIndex + 2;
   }
 
   @Override
@@ -100,7 +106,7 @@ public class Family {
             mother.equals(family.mother) &&
             father.equals(family.father) &&
             Arrays.equals(children, family.children) &&
-            pet.getNickname().equals(family.pet.getNickname())&&
+            pet.getNickname().equals(family.pet.getNickname()) &&
             pet.getSpecies().equals(family.pet.getSpecies());
   }
 

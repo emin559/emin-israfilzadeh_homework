@@ -26,14 +26,12 @@ public class Main {
     Human mother = new Human("Magda", "Alderson", 1985);
     Human father = new Human("Edward", "Alderson", 1983);
     Pet qwerty = new Pet("dog", "qwerty", 1, 55, qwertyHabits);
-    Human child1 = new Human("Eliot1", "Alderson", 1991);
-    child1.setSchedule(schedule);
-    Family family = new Family(mother, father, children);
+    Human child1 = new Human("Eliot1", "Alderson", 1991, 91, schedule);
+    Family family = new Family(mother, father, children, qwerty);
 
     family.addChild(child1);
     family.addChild(child1);
     family.deleteChild(0);
-    family.setPet(qwerty);
     System.out.println(family.countFamily());
 
 

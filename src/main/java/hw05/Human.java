@@ -29,6 +29,14 @@ public class Human {
     this.family = family;
   }
 
+  public Human(String name, String surname, int year, int iq, String[][] schedule) {
+    this.name = name;
+    this.surname = surname;
+    this.year = year;
+    this.iq = iq;
+    this.schedule = schedule;
+  }
+
   public Human(String name, String surname, int year, int iq, Family family, String[][] schedule) {
     this.name = name;
     this.surname = surname;
@@ -96,7 +104,9 @@ public class Human {
     return String.format("I have a %s, he is %d years old, he is %s", family.getPet().getSpecies(), family.getPet().getAge(), trick);
   }
 
+/*
   String schedule(String[][] schedule){
+
     if(schedule != null) {
       String scheduleString;
       StringBuilder str = new StringBuilder();
@@ -116,6 +126,7 @@ public class Human {
     }
     return "";
   }
+*/
 
   boolean feedPet(boolean hungry) {
     String hunger;
@@ -140,6 +151,7 @@ public class Human {
     }
   }
 
+
   @Override
   public String toString() {
     return "Human{" +
@@ -147,7 +159,7 @@ public class Human {
             ", surname='" + surname + '\'' +
             ", year=" + year +
             ", iq=" + iq +
-            ", schedule=" + schedule(schedule) +
+            ", schedule=" + Arrays.deepToString(schedule) +
             '}';
   }
 
