@@ -1,9 +1,9 @@
 package hw07;
 
-public class Dog extends Pet implements Foulable {
+public class Dog extends Pet {
 
-  public Dog (String nickname, int age, int trickLevel, String[] habits) {
-    this.setSpecies(requiredEnums.Species.Dog);
+  public Dog(String nickname, int age, int trickLevel, String[] habits) {
+    this.setSpecies(Species.Dog);
     this.setNickname(nickname);
     this.setAge(age);
     this.setTrickLevel(trickLevel);
@@ -13,7 +13,7 @@ public class Dog extends Pet implements Foulable {
 
   @Override
   String respond() {
-    return null;
+    return "Hi, i am your lovely dog!";
   }
 
   @Override

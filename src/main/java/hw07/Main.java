@@ -6,19 +6,19 @@ public class Main {
     String[] qwertyHabits = new String[] {"eat", "drink", "sleep"};
 
     String[][] schedule = new String[7][2];
-    schedule[0][0] = requiredEnums.DayOfWeek.Monday.name();
+    schedule[0][0] = DayOfWeek.Monday.name();
     schedule[0][1] = "do home work";
-    schedule[1][0] = requiredEnums.DayOfWeek.Tuesday.name();
+    schedule[1][0] = DayOfWeek.Tuesday.name();
     schedule[1][1] = "go to courses";
-    schedule[2][0] = requiredEnums.DayOfWeek.Wednesday.name();
+    schedule[2][0] = DayOfWeek.Wednesday.name();
     schedule[2][1] = "watch a film";
-    schedule[3][0] = requiredEnums.DayOfWeek.Thursday.name();
+    schedule[3][0] = DayOfWeek.Thursday.name();
     schedule[3][1] = "go for a walk";
-    schedule[4][0] = requiredEnums.DayOfWeek.Friday.name();
+    schedule[4][0] = DayOfWeek.Friday.name();
     schedule[4][1] = "meet with friends";
-    schedule[5][0] = requiredEnums.DayOfWeek.Saturday.name();
+    schedule[5][0] = DayOfWeek.Saturday.name();
     schedule[5][1] = "play football";
-    schedule[6][0] = requiredEnums.DayOfWeek.Sunday.name();
+    schedule[6][0] = DayOfWeek.Sunday.name();
     schedule[6][1] = "do not go out";
 
     Human[] children = new Human[10];

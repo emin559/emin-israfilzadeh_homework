@@ -9,7 +9,7 @@ public final class Woman extends Human {
   }
 
 
-  String Makeup() {
+  String makeup() {
     return "I finished my makeup. I am ready to go. \n";
   }
 
