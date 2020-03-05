@@ -1,8 +1,8 @@
 package hw08;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 public class Family {
 
@@ -10,7 +10,7 @@ public class Family {
   private Human father;
   private List<Human> children;
   private int childIndex = 0;
-  private List<Pet> pets;
+  private Set<Pet> pets;
 
   public Family(Human mother, Human father, List<Human> children) {
     this.mother = mother;
@@ -51,11 +51,11 @@ public class Family {
     this.childIndex = childIndex;
   }
 
-  public List<Pet> getPets() {
+  public Set<Pet> getPets() {
     return pets;
   }
 
-  public void setPets(List<Pet> pets) {
+  public void setPets(Set<Pet> pets) {
     this.pets = pets;
   }
 

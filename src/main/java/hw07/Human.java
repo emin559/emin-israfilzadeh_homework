@@ -3,7 +3,7 @@ package hw07;
 import java.util.Arrays;
 import java.util.Random;
 
-public abstract class Human {
+public class Human {
 
   private String name;
   private String surname;
@@ -87,35 +87,15 @@ public abstract class Human {
     this.schedule = schedule;
   }
 
-  abstract String greetPet();
+  String greetPet() {
+    return "Hello!";
+  }
 
   String describePet() {
     String trick = family.getPet().getTrickLevel()>=50 ? "very sly.\n" : "almost not sly.\n";
     return String.format("I have a %s, he is %d years old, he is %s", family.getPet().getSpecies(), family.getPet().getAge(), trick);
   }
 
-  /*
-  String schedule(String[][] schedule){
-    if(schedule != null) {
-      String scheduleString = "";
-      StringBuilder str = new StringBuilder();
-      str.append("[");
-      for (String[] strings : schedule) {
-        for (int task = 0; task < 1; task++) {
-          str.append(String.format("[%s: ", strings[0]));
-        }
-        for (int task = 0; task < 1; task++) {
-          str.append(String.format("%s], ", strings[1]));
-        }
-
-      }
-      str.append("]");
-      scheduleString = str.toString();
-      return scheduleString;
-    }
-    return null;
-  }
-*/
   boolean feedPet(boolean hungry) {
     String hunger;
     if(hungry) {

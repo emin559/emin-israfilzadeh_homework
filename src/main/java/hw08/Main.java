@@ -1,6 +1,9 @@
 package hw08;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Main {
   public static void main(String[] args) {
@@ -28,7 +31,8 @@ public class Main {
             "do not go out");
 
     ArrayList<Human> children = new ArrayList<>();
-    List<Pet> pets = new ArrayList<>();
+    Set<Pet> pets = new HashSet<>() {
+    };
 
     Woman mother = new Woman("Magda", "Alderson", 1985);
     Man father = new Man("Edward", "Alderson", 1983);

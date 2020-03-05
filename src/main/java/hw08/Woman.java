@@ -1,5 +1,7 @@
 package hw08;
 
+import java.util.ArrayList;
+
 public final class Woman extends Human {
 
   public Woman(String name, String surname, int year) {
@@ -15,7 +17,7 @@ public final class Woman extends Human {
 
   @Override
   String greetPet(int petIndex) {
-    return String.format("Hello, %s. I am your Mummy \n", getFamily().getPets().get(petIndex).getNickname());
+    return String.format("Hello, %s. I am your Mummy \n", new ArrayList<>(getFamily().getPets()).get(petIndex).getNickname());
   }
 
 

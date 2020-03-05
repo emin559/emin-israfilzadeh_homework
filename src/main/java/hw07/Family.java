@@ -58,10 +58,10 @@ public class Family {
     this.pet = pet;
   }
 
-  int addChild(Human child) {
+  void addChild(Human child) {
+    children = Arrays.copyOf(children, childIndex + 1);
     children[childIndex] = child;
     childIndex++;
-    return childIndex;
   }
 
   boolean deleteChild(int index) {

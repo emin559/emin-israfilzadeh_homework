@@ -1,6 +1,6 @@
 package hw08;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
@@ -92,49 +92,27 @@ public abstract class Human {
   abstract String greetPet(int petIndex);
 
   String describePet(int petIndex) {
-    String trick = family.getPets().get(petIndex).getTrickLevel()>=50 ? "very sly.\n" : "almost not sly.\n";
-    return String.format("I have a %s, he is %d years old, he is %s", family.getPets().get(petIndex).getSpecies(), family.getPets().get(petIndex).getAge(), trick);
+    String trick = new ArrayList<>(family.getPets()).get(petIndex).getTrickLevel()>=50 ? "very sly.\n" : "almost not sly.\n";
+    return String.format("I have a %s, he is %d years old, he is %s", new ArrayList<>(family.getPets()).get(petIndex).getSpecies(), new ArrayList<>(family.getPets()).get(petIndex).getAge(), trick);
   }
 
-  /*
-  String schedule(String[][] schedule){
-    if(schedule != null) {
-      String scheduleString = "";
-      StringBuilder str = new StringBuilder();
-      str.append("[");
-      for (String[] strings : schedule) {
-        for (int task = 0; task < 1; task++) {
-          str.append(String.format("[%s: ", strings[0]));
-        }
-        for (int task = 0; task < 1; task++) {
-          str.append(String.format("%s], ", strings[1]));
-        }
-
-      }
-      str.append("]");
-      scheduleString = str.toString();
-      return scheduleString;
-    }
-    return null;
-  }
-*/
   boolean feedPet(boolean hungry, int petIndex) {
     String hunger;
     if(hungry) {
-      hunger = String.format("Hm... I will feed %s's %s.", name, family.getPets().get(petIndex).getNickname());
+      hunger = String.format("Hm... I will feed %s's %s.", name, new ArrayList<>(family.getPets()).get(petIndex).getNickname());
       System.out.println(hunger);
       return true;
     }
     else {
       Random random = new Random();
       int hungerRandom = random.nextInt(100);
-      if(family.getPets().get(petIndex).getTrickLevel()>hungerRandom){
-        hunger = String.format("Hm... I will feed %s's %s.", name, family.getPets().get(petIndex).getNickname());
+      if(new ArrayList<>(family.getPets()).get(petIndex).getTrickLevel()>hungerRandom){
+        hunger = String.format("Hm... I will feed %s's %s.", name, new ArrayList<>(family.getPets()).get(petIndex).getNickname());
         System.out.println(hunger);
         return true;
       }
       else {
-        hunger = String.format("I think %s's %s is not hungry.", name, family.getPets().get(petIndex).getNickname());
+        hunger = String.format("I think %s's %s is not hungry.", name, new ArrayList<>(family.getPets()).get(petIndex).getNickname());
         System.out.println(hunger);
         return false;
       }

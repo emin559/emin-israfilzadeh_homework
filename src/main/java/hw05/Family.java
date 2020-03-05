@@ -65,10 +65,9 @@ public class Family {
   }
 
   void addChild(Human child) {
-    if (childIndex < children.length) {
-      children[childIndex] = child;
-      childIndex++;
-    }
+    children = Arrays.copyOf(children, childIndex + 1);
+    children[childIndex] = child;
+    childIndex++;
   }
 
   boolean deleteChild(int index) {

@@ -21,16 +21,17 @@ public class Main {
     schedule[6][0] = "Saturday";
     schedule[6][1] = "do not go out";
 
-    Human[] children = new Human[10];
+    Human[] children = new Human[0];
 
     Human mother = new Human("Magda", "Alderson", 1985);
     Human father = new Human("Edward", "Alderson", 1983);
     Pet qwerty = new Pet("dog", "qwerty", 1, 55, qwertyHabits);
     Human child1 = new Human("Eliot1", "Alderson", 1991, 91, schedule);
+    Human child2 = new Human("Eliot2", "Alderson", 1991, 91, schedule);
     Family family = new Family(mother, father, children, qwerty);
 
     family.addChild(child1);
-    family.addChild(child1);
+    family.addChild(child2);
     family.deleteChild(0);
     System.out.println(family.countFamily());
 
