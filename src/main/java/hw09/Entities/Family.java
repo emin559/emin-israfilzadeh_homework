@@ -1,5 +1,6 @@
 package hw09.Entities;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
@@ -8,12 +9,11 @@ public class Family {
 
   private Human mother;
   private Human father;
-  private List<Human> children;
+  private ArrayList<Human> children;
   private int childIndex = 0;
   private Set<Pet> pets;
-  int count = countFamily();
 
-  public Family(Human mother, Human father, List<Human> children) {
+  public Family(Human mother, Human father, ArrayList<Human> children) {
     this.mother = mother;
     this.father = father;
     this.children = children;
@@ -40,7 +40,7 @@ public class Family {
     return children;
   }
 
-  public void setChildren(List<Human> children) {
+  public void setChildren(ArrayList<Human> children) {
     this.children = children;
   }
 
@@ -60,14 +60,6 @@ public class Family {
     this.pets = pets;
   }
 
-  public int getCount() {
-    return count;
-  }
-
-  public void setCount(int count) {
-    this.count = count;
-  }
-
   public int addChild(Human child) {
     children.add(child);
     return children.size();
@@ -81,8 +73,13 @@ public class Family {
     return false;
   }
 
-  int countFamily() {
-    return children.size() + 2;
+  public int countFamily() {
+    if (children!=null) {
+      return children.size() + 2;
+    }
+    else{
+      return 0;
+    }
   }
 
   @Override
@@ -102,8 +99,7 @@ public class Family {
     Family family = (Family) o;
     return mother.equals(family.mother) &&
             father.equals(family.father) &&
-            children.equals(family.children) &&
-            getPets().size() == family.getPets().size();
+            children.equals(family.children);
   }
 
   @Override

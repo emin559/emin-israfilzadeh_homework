@@ -4,89 +4,102 @@ import hw09.Entities.Family;
 import hw09.Entities.Human;
 import hw09.Entities.Pet;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
-public class FamilyService implements FamilyDao {
-  FamilyDao familyDao;
+public class FamilyService {
 
+  public DAO<Family> dao = new CollectionFamilyDao();
+  public List<Family> familyList = dao.getAllFamilies();
 
-  @Override
   public List<Family> getAllFamilies() {
-    return familyDao.getAllFamilies();
+    return familyList;
   }
 
-  @Override
-  public Family getFamilyByIndex(int index) {
-    return familyDao.getFamilyByIndex(index);
-  }
-
-  @Override
-  public boolean deleteFamilyByIndex(int index) {
-    return familyDao.deleteFamilyByIndex(index);
-  }
-
-  @Override
-  public boolean deleteFamily(Family family) {
-    return familyDao.deleteFamily(family);
-  }
-
-  @Override
-  public void saveFamily(Family family) {
-    familyDao.saveFamily(family);
-  }
-
-  @Override
   public void displayAllFamilies() {
-    familyDao.displayAllFamilies();
+    dao.getAllFamilies().forEach(fl -> System.out.println(fl.toString()));
   }
 
-  @Override
   public List<Family> getFamiliesBiggerThan(int count) {
-    return familyDao.getFamiliesBiggerThan(count);
+    List<Family> biggerFamily = new ArrayList<>(Arrays.asList());
+
+    for (Family family : familyList) {
+      if (family.countFamily() > count) biggerFamily.add(family);
+    }
+
+    System.out.printf("Families bigger than %d:\n %s\n", count, biggerFamily.toString());
+    return biggerFamily;
   }
 
-  @Override
   public List<Family> getFamiliesLessThan(int count) {
-    return familyDao.getFamiliesLessThan(count);
+    List<Family> lessFamily = new ArrayList<>(Arrays.asList());
+
+    for (Family family : familyList) {
+      if (family.countFamily() < count) lessFamily.add(family);
+    }
+
+    System.out.printf("Families less than %d:\n %s\n", count, lessFamily.toString());
+    return lessFamily;
   }
 
-  @Override
   public List<Family> countFamiliesWithMemberNumber(int count) {
-    return familyDao.countFamiliesWithMemberNumber(count);
+    List<Family> exactFamily = new ArrayList<>(Arrays.asList());
+
+    for (Family family : familyList) {
+      if (family.countFamily() == count) exactFamily.add(family);
+    }
+
+    System.out.printf("Families with member of %d:\n %s \n", count, exactFamily.toString());
+    return exactFamily;
   }
 
-  @Override
   public void createNewFamily(Human man, Human woman) {
-    familyDao.createNewFamily(man, woman);
+    ArrayList<Human> children = new ArrayList<>();
+    Family family = new Family(woman, woman, children);
+    familyList.add(family);
   }
 
-  @Override
   public Family bornChild(Family family) {
-    return familyDao.bornChild(family);
+
+    //should be filled
+    return family;
   }
 
-  @Override
   public Family adoptChild(Family family, Human child) {
-    return familyDao.adoptChild(family, child);
+    var currentFamily = familyList.get(familyList.indexOf(family));
+    currentFamily.addChild(child);
+    dao.saveFamily(family);
+    return family;
   }
 
-  @Override
   public void deleteAllChildrenOlderThen(int age) {
-    familyDao.deleteAllChildrenOlderThen(age);
+    for (Family family : familyList) {
+      List<Human> children = family.getChildren();
+      var date = 2020;
+      children.removeIf(ch -> age < (date - ch.getYear()));
+      dao.saveFamily(family);
+    }
   }
 
-  @Override
   public int count() {
-    return familyDao.count();
+    return familyList.size();
   }
 
-  @Override
+  public Family getFamilyById(int index) {
+    return dao.getFamilyByIndex(index);
+  }
+
   public List<Pet> getPets(int index) {
-    return familyDao.getPets(index);
+    var family = familyList.get(index);
+    return family.getPets().stream().collect(Collectors.toList());
   }
 
-  @Override
   public void addPet(int familyIndex, Pet pet) {
-    familyDao.addPet(familyIndex, pet);
+    var family = familyList.get(familyIndex);
+    family.getPets().add(pet);
+    dao.saveFamily(family);
   }
+
 }

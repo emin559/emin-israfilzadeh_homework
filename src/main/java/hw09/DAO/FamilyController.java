@@ -6,70 +6,60 @@ import hw09.Entities.Pet;
 
 import java.util.List;
 
-public class FamilyController extends FamilyService {
-  public FamilyService service = new FamilyService();
+public class FamilyController {
+  public FamilyService familyService = new FamilyService();
 
   public List<Family> getAllFamilies() {
-    return service.getAllFamilies();
-  }
-
-  public Family getFamilyByIndex(int index) {
-    return service.getFamilyByIndex(index);
-  }
-
-  public boolean deleteFamilyByIndex(int index) {
-    return service.deleteFamilyByIndex(index);
-  }
-
-  public boolean deleteFamily(Family family) {
-    return service.deleteFamily(family);
-  }
-
-  public void saveFamily(Family family) {
-    service.saveFamily(family);
+    return familyService.getAllFamilies();
   }
 
   public void displayAllFamilies() {
-    service.displayAllFamilies();
+    familyService.displayAllFamilies();
   }
 
   public List<Family> getFamiliesBiggerThan(int count) {
-    return service.getFamiliesBiggerThan(count);
+    return familyService.getFamiliesBiggerThan(count);
   }
 
   public List<Family> getFamiliesLessThan(int count) {
-    return service.getFamiliesLessThan(count);
+    return familyService.getFamiliesLessThan(count);
   }
 
   public List<Family> countFamiliesWithMemberNumber(int count) {
-    return service.countFamiliesWithMemberNumber(count);
+    return familyService.countFamiliesWithMemberNumber(count);
   }
 
   public void createNewFamily(Human man, Human woman) {
-    service.createNewFamily(man, woman);
+    familyService.createNewFamily(man, woman);
   }
 
   public Family bornChild(Family family) {
-    return service.bornChild(family);
+
+    //should be filled
+    return family;
   }
 
   public Family adoptChild(Family family, Human child) {
-    return service.adoptChild(family, child);
+    return familyService.adoptChild(family, child);
   }
 
   public void deleteAllChildrenOlderThen(int age) {
-    service.deleteAllChildrenOlderThen(age);
+    familyService.deleteAllChildrenOlderThen(age);
   }
 
   public int count() {
-    return service.count();
+    return familyService.count();
+  }
+
+  public Family getFamilyById(int index) {
+    return familyService.getFamilyById(index);
   }
 
   public List<Pet> getPets(int index) {
-    return service.getPets(index);
+    return familyService.getPets(index);
   }
 
   public void addPet(int familyIndex, Pet pet) {
-    service.addPet(familyIndex, pet);
+    familyService.addPet(familyIndex, pet);
   }
 }
