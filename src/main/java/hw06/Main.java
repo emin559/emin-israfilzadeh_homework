@@ -28,16 +28,18 @@ public class Main {
     Human father = new Human("Edward", "Alderson", 1983);
     Pet qwerty = new Pet(Species.Dog, "qwerty", 1, 55, qwertyHabits);
     Human child1 = new Human("Eliot1", "Alderson", 1991, 91, schedule);
+    Human child2 = new Human("E2", "Alderson", 1991, 91, schedule);
+    Human child3 = new Human("E3", "Alderson", 1991, 91, schedule);
     Family family = new Family(mother, father, children, qwerty);
 
     family.addChild(child1);
     family.addChild(child1);
-    family.deleteChild(0);
+    family.deleteChild(child2);
     System.out.println(family.countFamily());
     System.out.println(family.toString());
 
     for (int i = 0; i < 1000000000 ; i++) {
-        new Human();
+       // new Human();
     }
 
   }
