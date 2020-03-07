@@ -65,6 +65,7 @@ public class Family {
   }
 
   int addChild(Human child) {
+    children = Arrays.copyOf(children, childIndex + 1);
     children[childIndex] = child;
     childIndex++;
     return childIndex;
@@ -78,6 +79,43 @@ public class Family {
       return true;
     }
     children= Arrays.copyOf(children, childIndex);
+    return false;
+  }
+
+
+  boolean deleteChild(Human child) {
+
+    // Silinəcək child-ın children arrayındakı indexi burdan gələcək.
+    // children.length qoymuşam ki arrayda olmayan child göndəriləndə Indexoutofbouderror versin, catch-a getsin.
+    int index = children.length;
+
+    // Children arrayını yoxlayıram ki,
+    // əgər funksiyada gələn child arrayın içində varsa onun index-ini götürüm index-ə qoyum.
+    for (int i = 0; i < children.length; i++) {
+      if (children[i] == child) index = i;
+    }
+
+    try{
+      //child-ın arrayda olub olmamağını yoxlayıram
+      if (children[index] != null){
+
+        //Əgər varsa obiri delete(index ilə silən) kimi sağdan sola sürüşdürürəm.
+        // for-a mouse ilə gələndə onu replace deyir. Onu arraycopy ilə daha qısa yazır. Mən eləməmişdim obirində
+        // Fərid dedi elədim
+        for (int i = index; i < children.length-1; i++) {
+          children[i] = children[i+1];
+        }
+        childIndex--;
+        children= Arrays.copyOf(children, childIndex);
+        return true;
+      }
+
+    }
+    // "int index = children.length" yazmışdım yuxarıda.
+    // əgər funksiyada göndərilən child arrayın içində olmasa index = length qalır, indexoutofbounderror verir bura gəlir.
+    catch(Exception e) {
+      System.out.println("Child you want to delete does not belong to current family!");
+    }
     return false;
   }
 
