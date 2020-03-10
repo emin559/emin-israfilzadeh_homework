@@ -1,8 +1,9 @@
-package hw09.DAO;
+package hw09.controller;
 
-import hw09.Entities.Family;
-import hw09.Entities.Human;
-import hw09.Entities.Pet;
+import hw09.entities.Family;
+import hw09.entities.Human;
+import hw09.entities.Pet;
+import hw09.service.FamilyService;
 
 import java.util.List;
 
@@ -13,8 +14,12 @@ public class FamilyController {
     return familyService.getAllFamilies();
   }
 
-  public void displayAllFamilies() {
-    familyService.displayAllFamilies();
+  public Family getFamilyById(int index) {
+    return familyService.getFamilyById(index);
+  }
+
+  public String displayAllFamilies() {
+    return familyService.displayAllFamilies();
   }
 
   public List<Family> getFamiliesBiggerThan(int count) {
@@ -33,10 +38,9 @@ public class FamilyController {
     familyService.createNewFamily(man, woman);
   }
 
-  public Family bornChild(Family family) {
+  public Family bornChild(Family family, String masculine, String feminine) {
 
-    //should be filled
-    return family;
+    return familyService.bornChild(family, masculine, feminine);
   }
 
   public Family adoptChild(Family family, Human child) {
@@ -49,10 +53,6 @@ public class FamilyController {
 
   public int count() {
     return familyService.count();
-  }
-
-  public Family getFamilyById(int index) {
-    return familyService.getFamilyById(index);
   }
 
   public List<Pet> getPets(int index) {

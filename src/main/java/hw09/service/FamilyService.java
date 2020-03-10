@@ -1,12 +1,15 @@
-package hw09.DAO;
+package hw09.service;
 
-import hw09.Entities.Family;
-import hw09.Entities.Human;
-import hw09.Entities.Pet;
+import hw09.dao.CollectionFamilyDao;
+import hw09.dao.DAO;
+import hw09.entities.Family;
+import hw09.entities.Human;
+import hw09.entities.Pet;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class FamilyService {
@@ -14,56 +17,69 @@ public class FamilyService {
   public DAO<Family> dao = new CollectionFamilyDao();
   public List<Family> familyList = dao.getAllFamilies();
 
+
   public List<Family> getAllFamilies() {
     return familyList;
   }
 
-  public void displayAllFamilies() {
-    dao.getAllFamilies().forEach(fl -> System.out.println(fl.toString()));
+  public Family getFamilyById(int index) {
+    return dao.getFamilyByIndex(index);
+  }
+
+
+  public String displayAllFamilies() {
+    StringBuilder dAllFamilies = new StringBuilder();
+    dao.getAllFamilies().forEach(fl -> dAllFamilies.append(fl).append("/n"));
+    return dAllFamilies.toString();
   }
 
   public List<Family> getFamiliesBiggerThan(int count) {
-    List<Family> biggerFamily = new ArrayList<>(Arrays.asList());
+    List<Family> biggerFamily = new ArrayList<>();
 
     for (Family family : familyList) {
       if (family.countFamily() > count) biggerFamily.add(family);
     }
 
-    System.out.printf("Families bigger than %d:\n %s\n", count, biggerFamily.toString());
     return biggerFamily;
   }
 
   public List<Family> getFamiliesLessThan(int count) {
-    List<Family> lessFamily = new ArrayList<>(Arrays.asList());
+    List<Family> lessFamily = new ArrayList<>();
 
     for (Family family : familyList) {
       if (family.countFamily() < count) lessFamily.add(family);
     }
 
-    System.out.printf("Families less than %d:\n %s\n", count, lessFamily.toString());
     return lessFamily;
   }
 
   public List<Family> countFamiliesWithMemberNumber(int count) {
-    List<Family> exactFamily = new ArrayList<>(Arrays.asList());
+    List<Family> exactFamily = new ArrayList<>();
 
     for (Family family : familyList) {
       if (family.countFamily() == count) exactFamily.add(family);
     }
-
-    System.out.printf("Families with member of %d:\n %s \n", count, exactFamily.toString());
     return exactFamily;
   }
 
   public void createNewFamily(Human man, Human woman) {
     ArrayList<Human> children = new ArrayList<>();
-    Family family = new Family(woman, woman, children);
+    Set<Pet> pets = new HashSet<>();
+    Family family = new Family(woman, man, children);
+    family.setPets(pets);
     familyList.add(family);
   }
 
-  public Family bornChild(Family family) {
-
-    //should be filled
+  public Family bornChild(Family family, String masculine, String feminine) {
+    int rn = (int)(Math.random()*2);
+    String name = rn==0? masculine: feminine;
+    Human child = new Human();
+    child.setName(name);
+    child.setSurname(family.getFather().getSurname());
+    child.setSchedule(family.getFather().getSchedule());
+    child.setYear(1995);
+    child.setIq(55);
+    familyList.get(familyList.indexOf(family)).addChild(child);
     return family;
   }
 
@@ -85,10 +101,6 @@ public class FamilyService {
 
   public int count() {
     return familyList.size();
-  }
-
-  public Family getFamilyById(int index) {
-    return dao.getFamilyByIndex(index);
   }
 
   public List<Pet> getPets(int index) {

@@ -1,11 +1,10 @@
-package hw09.Entities;
+package hw09.entities;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 import java.util.Random;
 
-public abstract class Human {
+public class Human {
 
   private String name;
   private String surname;
@@ -81,7 +80,7 @@ public abstract class Human {
     this.family = family;
   }
 
-  public Map<String, String> getSchedule() {
+  public HashMap<String, String> getSchedule() {
     return schedule;
   }
 
@@ -89,7 +88,9 @@ public abstract class Human {
     this.schedule = schedule;
   }
 
-  abstract String greetPet(int petIndex);
+  String greetPet(int petIndex) {
+    return "Hellooo";
+  }
 
   String describePet(int petIndex) {
     String trick = new ArrayList<>(family.getPets()).get(petIndex).getTrickLevel()>=50 ? "very sly.\n" : "almost not sly.\n";
@@ -121,13 +122,10 @@ public abstract class Human {
 
   @Override
   public String toString() {
-    return "Human{" +
-            "name='" + name + '\'' +
-            ", surname='" + surname + '\'' +
-            ", year=" + year +
-            ", iq=" + iq +
-            ", schedule=" + schedule.toString() +
-            '}';
+    return String.format("Human{name='%s', " +
+            "surname='%s', " +
+            "year=%d, iq=%d, " +
+            "schedule=%s}", name, surname, year, iq, schedule.toString());
   }
 
   @Override

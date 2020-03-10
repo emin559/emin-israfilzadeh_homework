@@ -1,4 +1,4 @@
-package hw09.Entities;
+package hw09.entities;
 
 public enum DayOfWeek {
   Monday,

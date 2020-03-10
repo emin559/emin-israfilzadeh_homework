@@ -1,6 +1,7 @@
-package hw09.DAO;
+package hw09;
 
-import hw09.Entities.*;
+import hw09.controller.FamilyController;
+import hw09.entities.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -34,6 +35,7 @@ public class Main {
 
     Woman mAlderson = new Woman("Magda", "Alderson", 1985);
     Man fAlderson = new Man("Edward", "Alderson", 1983);
+    fAlderson.setSchedule(schedule);
     ArrayList<Human> chAlderson = new ArrayList<>();
     Set<Pet> pAlderson = new HashSet<>();
     Dog qwerty = new Dog("qwerty", 1, 55, qwertyHabits);
@@ -66,16 +68,16 @@ public class Main {
     System.out.println(fc.getAllFamilies());
     System.out.println("");
 
-    fc.displayAllFamilies();
+    System.out.println(fc.displayAllFamilies());
     System.out.println("");
 
-    fc.getFamiliesBiggerThan(1);
+    System.out.println(fc.getFamiliesBiggerThan(1));
     System.out.println("");
 
-    fc.getFamiliesLessThan(3);
+    System.out.println(fc.getFamiliesLessThan(3));
     System.out.println("");
 
-    fc.countFamiliesWithMemberNumber(1);
+    System.out.println(fc.countFamiliesWithMemberNumber(1));
     System.out.println("");
 
     Woman demoMom = new Woman("Demo1", "Demo1", 1985);
@@ -91,8 +93,13 @@ public class Main {
     System.out.println(fc.getFamilyById(0));
 
     fc.addPet(1, qwerty);
+    fc.addPet(2, nymeria);
     System.out.println(fc.getPets(1));
 
+    fc.displayAllFamilies();
+
+    fc.bornChild(alderson, "Elly", "Joel");
+    System.out.println(alderson);
   }
 
 }
