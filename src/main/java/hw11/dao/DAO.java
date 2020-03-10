@@ -1,4 +1,4 @@
-package hw11.DAO;
+package hw11.dao;
 
 import java.util.List;
 

@@ -1,6 +1,7 @@
-package hw11.DAO;
+package hw11;
 
-import hw11.Entities.*;
+import hw11.controller.FamilyController;
+import hw11.entities.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -34,6 +35,7 @@ public class Main {
 
     Woman mAlderson = new Woman("Magda", "Alderson", "15/10/1985");
     Man fAlderson = new Man("Edward", "Alderson", "13/5/1983");
+    fAlderson.setSchedule(schedule);
     ArrayList<Human> chAlderson = new ArrayList<>();
     Set<Pet> pAlderson = new HashSet<>();
     Dog qwerty = new Dog("qwerty", 1, 55, qwertyHabits);
@@ -66,24 +68,25 @@ public class Main {
     System.out.println(fc.getAllFamilies());
     System.out.println("");
 
-    fc.displayAllFamilies();
+    System.out.println(fc.displayAllFamilies());
     System.out.println("");
 
-    fc.getFamiliesBiggerThan(1);
+    System.out.println(fc.getFamiliesBiggerThan(1));
     System.out.println("");
 
-    fc.getFamiliesLessThan(3);
+    System.out.println(fc.getFamiliesLessThan(3));
     System.out.println("");
 
-    fc.countFamiliesWithMemberNumber(1);
+    System.out.println(fc.countFamiliesWithMemberNumber(1));
     System.out.println("");
 
     Woman demoMom = new Woman("Demo1", "Demo1", "7/3/1985");
     Man demoDad = new Man("Demo2", "Demo2", "5/5/1983");
     Man demoChild = new Man("Demo3", "Demo3", "03/08/1983");
+    demoChild.setSchedule(schedule);
     fc.createNewFamily(demoDad, demoMom);
     fc.adoptChild(alderson, demoChild);
-    demoChild.setSchedule(schedule);
+
     System.out.printf("Count of families: %d\n", fc.count());
     System.out.println("");
 
@@ -91,10 +94,15 @@ public class Main {
     System.out.println(fc.getFamilyById(0));
 
     fc.addPet(1, qwerty);
+    fc.addPet(2, nymeria);
     System.out.println(fc.getPets(1));
 
-    System.out.println(demoChild.describeAge());
+    fc.displayAllFamilies();
 
+    fc.bornChild(alderson, "Elly", "Joel");
+    System.out.println(alderson);
+
+    System.out.println(mAlderson.describeAge());
   }
 
 }

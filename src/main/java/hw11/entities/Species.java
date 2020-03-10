@@ -1,4 +1,4 @@
-package hw11.Entities;
+package hw11.entities;
 
 public enum Species {
     Dog,

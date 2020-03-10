@@ -1,21 +1,20 @@
-package hw11.Entities;
+package hw11.entities;
 
 import java.util.Set;
 
-public class RoboCat extends Pet {
+public class DomesticCat extends Pet {
 
-  public RoboCat (String nickname, int age, int trickLevel, Set<String> habits) {
-    this.setSpecies(Species.Robocat);
+  public DomesticCat (String nickname, int age, int trickLevel, Set<String> habits) {
+    this.setSpecies(Species.DomesticCat);
     this.setNickname(nickname);
     this.setAge(age);
     this.setTrickLevel(trickLevel);
     this.setHabits(habits);
   }
 
-
   @Override
   String respond() {
-    return "Hi, i am your lovely dog!";
+    return "Hi, i am your lovely cat!";
   }
 
   @Override

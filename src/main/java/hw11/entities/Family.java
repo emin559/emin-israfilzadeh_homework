@@ -1,4 +1,4 @@
-package hw11.Entities;
+package hw11.entities;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -98,8 +98,7 @@ public class Family {
     if (o == null || getClass() != o.getClass()) return false;
     Family family = (Family) o;
     return mother.equals(family.mother) &&
-            father.equals(family.father) &&
-            children.equals(family.children);
+            father.equals(family.father);
   }
 
   @Override

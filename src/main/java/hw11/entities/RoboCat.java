@@ -1,11 +1,11 @@
-package hw11.Entities;
+package hw11.entities;
 
 import java.util.Set;
 
-public class Dog extends Pet {
+public class RoboCat extends Pet {
 
-  public Dog(String nickname, int age, int trickLevel, Set<String> habits) {
-    this.setSpecies(Species.Dog);
+  public RoboCat (String nickname, int age, int trickLevel, Set<String> habits) {
+    this.setSpecies(Species.Robocat);
     this.setNickname(nickname);
     this.setAge(age);
     this.setTrickLevel(trickLevel);

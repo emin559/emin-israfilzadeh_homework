@@ -1,13 +1,12 @@
-package hw11.DAO;
+package hw11.dao;
 
-import hw11.Entities.Family;
+import hw11.entities.Family;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class CollectionFamilyDao implements DAO<Family> {
-  List<Family> familyList = new ArrayList<>(Arrays.asList());
+  List<Family> familyList = new ArrayList<>();
 
   @Override
   public List<Family> getAllFamilies() {
@@ -18,6 +17,7 @@ public class CollectionFamilyDao implements DAO<Family> {
   public Family getFamilyByIndex(int index) {
     if (index < familyList.size()) return familyList.get(index);
     else {
+      System.out.println();
       return null;
     }
   }

@@ -1,4 +1,4 @@
-package hw11.Entities;
+package hw11.entities;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -19,7 +19,6 @@ public final class Man extends Human {
       System.out.println("Wrong date input!");
     }
   }
-
 
   String repairCar() {
     return "I am ready to repair your car. \n";
