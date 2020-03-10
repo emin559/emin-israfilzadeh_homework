@@ -1,13 +1,16 @@
-package hw10.Entities;
+package hw10.entities;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.ZoneId;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Random;
 
-public abstract class Human {
+public class Human {
 
   private String name;
   private String surname;
@@ -118,7 +121,7 @@ public abstract class Human {
     this.family = family;
   }
 
-  public Map<String, String> getSchedule() {
+  public HashMap<String, String> getSchedule() {
     return schedule;
   }
 
@@ -126,7 +129,9 @@ public abstract class Human {
     this.schedule = schedule;
   }
 
-  abstract String greetPet(int petIndex);
+  String greetPet(int petIndex){
+    return "Hello";
+  }
 
   String describePet(int petIndex) {
     String trick = new ArrayList<>(family.getPets()).get(petIndex).getTrickLevel() >= 50 ? "very sly.\n" : "almost not sly.\n";
@@ -161,7 +166,8 @@ public abstract class Human {
     LocalDate localBD = birthday.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
     Period p = Period.between(localBD, today);
     String age = String.format("%s years %s months %s days", p.getYears(), p.getMonths(), p.getDays());
-    
+
+
     return age;
   }
 
@@ -172,8 +178,8 @@ public abstract class Human {
     return "Human{" +
             "name='" + name + '\'' +
             ", surname='" + surname + '\'' +
-            ", Date of birth=" + dateFormatted +
-            ", iq=" + iq +
+            ", Date of birth='" + dateFormatted +
+            "', iq=" + iq +
             ", schedule=" + schedule.toString() +
             '}';
   }

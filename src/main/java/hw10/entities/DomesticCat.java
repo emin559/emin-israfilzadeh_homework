@@ -1,4 +1,4 @@
-package hw10.Entities;
+package hw10.entities;
 
 import java.util.Set;
 
