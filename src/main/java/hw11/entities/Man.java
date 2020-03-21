@@ -10,7 +10,7 @@ public final class Man extends Human {
   public Man(String name, String surname, String birthDate) {
     this.setName(name);
     this.setSurname(surname);
-    DateFormat format = new SimpleDateFormat("dd/MM/YYYY");
+    DateFormat format = new SimpleDateFormat("dd/MM/yyyy");
     try{
       Date date = format.parse(birthDate);
       this.setBirthDate(date.getTime());

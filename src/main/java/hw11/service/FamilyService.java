@@ -77,12 +77,16 @@ public class FamilyService {
   }
 
   public void deleteAllChildrenOlderThen(int age) {
-    for (Family family : familyList) {
-      List<Human> children = family.getChildren();
-      var date = 2020;
-      children.removeIf(ch -> age < (date - ch.getBirthDate()));
+    var date = 2020;
+
+    List<Human> children = new ArrayList<>();
+    familyList.forEach(family -> {
+      children.addAll(family.getChildren()
+              .stream().filter(ch -> age < date - ch.getBirthDate()).collect(Collectors.toList()));
+      familyList.removeAll(children);
       dao.saveFamily(family);
-    }
+    });
+
   }
 
   public int count() {

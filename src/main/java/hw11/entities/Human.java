@@ -27,7 +27,7 @@ public class Human {
     this.name = name;
     this.surname = surname;
 
-    DateFormat format = new SimpleDateFormat("dd/MM/YYYY");
+    DateFormat format = new SimpleDateFormat("dd/MM/yyyy");
     try {
       Date date = format.parse(birthDate);
       this.birthDate = date.getTime();
@@ -41,7 +41,7 @@ public class Human {
     this.name = name;
     this.surname = surname;
     this.family = family;
-    DateFormat format = new SimpleDateFormat("dd/MM/YYYY");
+    DateFormat format = new SimpleDateFormat("dd/MM/yyyy");
     try {
       Date date = format.parse(birthDate);
       this.birthDate = date.getTime();
@@ -55,7 +55,7 @@ public class Human {
     this.name = name;
     this.surname = surname;
     this.iq = iq;
-    DateFormat format = new SimpleDateFormat("dd/MM/YYYY");
+    DateFormat format = new SimpleDateFormat("dd/MM/yyyy");
     try {
       Date date = format.parse(birthDate);
       this.birthDate = date.getTime();
@@ -70,7 +70,7 @@ public class Human {
     this.iq = iq;
     this.family = family;
     this.schedule = schedule;
-    DateFormat format = new SimpleDateFormat("dd/MM/YYYY");
+    DateFormat format = new SimpleDateFormat("dd/MM/yyyy");
     try {
       Date date = format.parse(birthDate);
       this.birthDate = date.getTime();
@@ -160,7 +160,7 @@ public class Human {
   }
 
   public String describeAge() {
-    DateFormat format = new SimpleDateFormat("dd/MM/YYYY");
+    DateFormat format = new SimpleDateFormat("dd/MM/yyyy");
     LocalDate today = LocalDate.now();
     Date birthday = new Date(birthDate);
     LocalDate localBD = birthday.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
@@ -173,7 +173,7 @@ public class Human {
 
   @Override
   public String toString() {
-    DateFormat formatter = new SimpleDateFormat("dd/MM/YYYY");
+    DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
     String dateFormatted = formatter.format(birthDate);
     return "Human{" +
             "name='" + name + '\'' +

@@ -90,7 +90,7 @@ public class Main {
     System.out.printf("Count of families: %d\n", fc.count());
     System.out.println("");
 
-    fc.deleteAllChildrenOlderThen(15);
+    fc.deleteAllChildrenOlderThen(3);
     System.out.println(fc.getFamilyById(0));
 
     fc.addPet(1, qwerty);
