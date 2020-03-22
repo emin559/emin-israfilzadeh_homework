@@ -1,4 +1,4 @@
-package hw12.DAO;
+package hw12.dao;
 
 import java.util.List;
 
@@ -6,7 +6,7 @@ public interface DAO<T> {
 
   List<T> getAllFamilies();
 
-  String getFamilyByIndex(int index);
+  T getFamilyByIndex(int index);
 
   boolean deleteFamily(int index);
 

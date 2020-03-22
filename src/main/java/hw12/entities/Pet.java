@@ -1,4 +1,4 @@
-package hw12.Entities;
+package hw12.entities;
 
 import java.util.Set;
 
@@ -77,9 +77,11 @@ public abstract class Pet {
 
   abstract String respond();
 
+
   @Override
   public String toString() {
-    return "{species=" + species +
+    return "Pet{" +
+            "species=" + species +
             ", nickname='" + nickname + '\'' +
             ", age=" + age +
             ", trickLevel=" + trickLevel +

@@ -1,4 +1,4 @@
-package hw12.Entities;
+package hw12.entities;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -76,21 +76,12 @@ public class Family {
   }
 
   public int countFamily() {
-    if (children != null) {
+    if (children!=null) {
       return children.size() + 2;
-    } else {
+    }
+    else{
       return 0;
     }
-  }
-
-  @Override
-  public String toString() {
-    return "Family{" +
-            "mother=" + mother.getName() + " " + mother.getSurname() +
-            ", father=" + father.getName() + " " + father.getSurname() +
-            ", children=" + children.toString() +
-            ", pets=" + pets.toString() +
-            '}';
   }
 
   public String formatChildren() {
@@ -120,13 +111,22 @@ public class Family {
   }
 
   @Override
+  public String toString() {
+    return "Family{" +
+            "mother=" + mother.getName() + " " + mother.getSurname() +
+            ", father=" + father.getName() + " " + father.getSurname() +
+            ", children=" + children.toString() +
+            ", pets=" + pets.toString() +
+            '}';
+  }
+
+  @Override
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     Family family = (Family) o;
     return mother.equals(family.mother) &&
-            father.equals(family.father) &&
-            children.equals(family.children);
+            father.equals(family.father);
   }
 
   @Override

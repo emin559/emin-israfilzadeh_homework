@@ -1,4 +1,4 @@
-package hw12.Entities;
+package hw12.entities;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -10,7 +10,7 @@ public final class Woman extends Human {
   public Woman(String name, String surname, String birthDate) {
     this.setName(name);
     this.setSurname(surname);
-    DateFormat format = new SimpleDateFormat("dd/MM/YYYY");
+    DateFormat format = new SimpleDateFormat("dd/MM/yyyy");
     try{
       Date date = format.parse(birthDate);
       this.setBirthDate(date.getTime());

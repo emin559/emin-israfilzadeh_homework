@@ -1,4 +1,4 @@
-package hw12.Entities;
+package hw12.entities;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -10,7 +10,7 @@ public final class Man extends Human {
   public Man(String name, String surname, String birthDate) {
     this.setName(name);
     this.setSurname(surname);
-    DateFormat format = new SimpleDateFormat("dd/MM/YYYY");
+    DateFormat format = new SimpleDateFormat("dd/MM/yyyy");
     try{
       Date date = format.parse(birthDate);
       this.setBirthDate(date.getTime());
@@ -19,7 +19,6 @@ public final class Man extends Human {
       System.out.println("Wrong date input!");
     }
   }
-
 
   String repairCar() {
     return "I am ready to repair your car. \n";
