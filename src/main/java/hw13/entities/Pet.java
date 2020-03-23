@@ -78,7 +78,7 @@ public abstract class Pet {
   abstract String respond();
 
   public String representPet() {
-    return String.format("%s*%s*%d*%d*%s", species, nickname, age, trickLevel, habits);
+    return String.format("Species: %s Nickname: %s age: %d tricklevel: %d habits: *%s", species, nickname, age, trickLevel, habits);
   }
 
   @Override

@@ -13,7 +13,6 @@ public class Main {
   public static void main(String[] args) {
 
     FamilyController fc = new FamilyController();
-    fc.getData();
 
     StringBuilder commandList = new StringBuilder();
     commandList
@@ -42,12 +41,14 @@ public class Main {
 
       switch (command) {
         case "1":
-          System.out.println("Test data created. Press enter to go back to main menu");
+          fc.getData();
+          System.out.println("Data loaded. Press enter to go back to main menu");
           command = input.nextLine();
           break;
 
         case "2":
           System.out.println(fc.displayAllFamilies());
+          if (fc.getAllFamilies().size()==0) System.out.println("No data! Please be sure that you have loaded.");
           System.out.println("Press enter to go back to main menu");
           command = input.nextLine();
           break;

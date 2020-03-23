@@ -139,8 +139,25 @@ public class Family {
     return result;
   }
 
+  public String formatPet() {
+    String pet = "";
+    StringBuilder pb = new StringBuilder();
+
+    for (Pet pet1 : pets) {
+      pb.append(pet1.getSpecies()).append(">")
+              .append(pet1.getNickname()).append(">")
+              .append(pet1.getAge()).append(">")
+              .append(pet1.getTrickLevel()).append(">")
+              .append(pet1.getHabits());
+
+    }
+    pet = pb.toString();
+    return pet;
+
+  }
+
   public String representFamily() {
-    return String.format("%s;%s;%s;%s",mother.representHuman(),father.representHuman(),children,pets);
+    return String.format("%s;%s;%s;%s",mother.representHuman(),father.representHuman(),children,formatPet());
   }
 
 

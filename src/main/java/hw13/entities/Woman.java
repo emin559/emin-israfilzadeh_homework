@@ -20,7 +20,20 @@ public final class Woman extends Human {
     }
   }
 
+  public Woman(String name, String surname, String birthDate, int iq) {
+    this.setName(name);
+    this.setSurname(surname);
+    this.setIq(iq);
+    DateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+    try {
+      Date date = format.parse(birthDate);
+      this.setBirthDate(date.getTime());
+    } catch (Exception e) {
+      System.out.println("Wrong date input!");
+    }
+  }
 
+  
   String makeup() {
     return "I finished my makeup. I am ready to go. \n";
   }
