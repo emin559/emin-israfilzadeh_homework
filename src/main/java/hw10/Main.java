@@ -64,7 +64,7 @@ public class Main {
     fc.familyService.dao.saveFamily(stark);
 
     System.out.println("");
-
+    System.out.println("here");
     System.out.println(fc.getAllFamilies());
     System.out.println("");
 

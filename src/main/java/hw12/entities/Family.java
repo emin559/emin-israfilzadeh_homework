@@ -103,11 +103,8 @@ public class Family {
 
   public String prettyFormat() {
     DateFormat formatter = new SimpleDateFormat("dd/MM/YYYY");
-    return "Family:\n" +
-            "mother: {name='" + mother.getName() + "', '" + "surname='" + mother.getSurname() + "', '" + "birthDate='" + formatter.format(mother.getBirthDate()) + "', '" + "iq=" + mother.getIq() + ", " + "schedule=" + mother.getSchedule() + ", \n" +
-            "father: {name='" + father.getName() + "', '" + "surname='" + father.getSurname() + "', '" + "birthDate='" + formatter.format(father.getBirthDate()) + "', '" + "iq=" + father.getIq() + ", " + "schedule=" + father.getSchedule() + ", \n" +
-            "children:\n" + formatChildren() +
-            "pets: " + pets.toString();
+    return String.format("Family:\nmother: {name='%s', 'surname='%s', 'birthDate='%s', 'iq=%d, schedule=%s, \nfather: {name='%s', 'surname='%s', 'birthDate='%s', 'iq=%d, schedule=%s, " +
+            "\nchildren:\n%spets: %s", mother.getName(), mother.getSurname(), formatter.format(mother.getBirthDate()), mother.getIq(), mother.getSchedule(), father.getName(), father.getSurname(), formatter.format(father.getBirthDate()), father.getIq(), father.getSchedule(), formatChildren(), pets.toString());
   }
 
   @Override

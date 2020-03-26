@@ -27,7 +27,7 @@ public class Human {
     this.name = name;
     this.surname = surname;
 
-    DateFormat format = new SimpleDateFormat("dd/MM/YYYY");
+    DateFormat format = new SimpleDateFormat("dd/MM/yyyy");
     try {
       Date date = format.parse(birthDate);
       this.birthDate = date.getTime();
@@ -55,7 +55,7 @@ public class Human {
     this.name = name;
     this.surname = surname;
     this.iq = iq;
-    DateFormat format = new SimpleDateFormat("dd/MM/YYYY");
+    DateFormat format = new SimpleDateFormat("dd/MM/yyyy");
     try {
       Date date = format.parse(birthDate);
       this.birthDate = date.getTime();
@@ -70,7 +70,7 @@ public class Human {
     this.iq = iq;
     this.family = family;
     this.schedule = schedule;
-    DateFormat format = new SimpleDateFormat("dd/MM/YYYY");
+    DateFormat format = new SimpleDateFormat("dd/MM/yyyy");
     try {
       Date date = format.parse(birthDate);
       this.birthDate = date.getTime();

@@ -11,6 +11,7 @@ public class FamilyController {
   public FamilyService familyService = new FamilyService();
 
   public List<Family> getAllFamilies() {
+
     return familyService.getAllFamilies();
   }
 

@@ -75,7 +75,7 @@ public class CollectionFamilyDao implements DAO<Family> {
       bw.close();
 
     } catch (IOException e) {
-      System.out.printf("Database file: '%s' not found! \n", file);
+      new FileNotFoundException();
 
       try {
         BufferedWriter bw = new BufferedWriter(new FileWriter(file));
@@ -88,7 +88,7 @@ public class CollectionFamilyDao implements DAO<Family> {
         bw.close();
 
       } catch (Exception e1) {
-        System.out.println("Error!");
+        new IllegalArgumentException("Something went wrong");
       }
     }
 
@@ -161,8 +161,8 @@ public class CollectionFamilyDao implements DAO<Family> {
         });
         familyList.addAll(families);
 
-      } catch (IOException e) {
-        System.out.printf(" Database fileeeeeeeeee: '%s' not found! \n", file);
+      } catch (FileNotFoundException e) {
+        new FileNotFoundException();
       }
     }
 
