@@ -28,9 +28,9 @@ public class FamilyService {
 
 
   public String displayAllFamilies() {
-    StringBuilder dAllFamilies = new StringBuilder();
-    dao.getAllFamilies().forEach(fl -> dAllFamilies.append(fl).append("/n"));
-    return dAllFamilies.toString();
+    return dao.getAllFamilies().stream()
+            .map(family -> String.format("%s\n",family))
+            .collect(Collectors.joining());
   }
 
   public List<Family> getFamiliesBiggerThan(int count) {

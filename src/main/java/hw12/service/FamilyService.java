@@ -31,12 +31,9 @@ public class FamilyService {
 
 
   public String displayAllFamilies() {
-    StringBuilder dAllFamilies = new StringBuilder();
-    dao.getAllFamilies().forEach(fl -> dAllFamilies.append(getAllFamilies().indexOf(fl) + 1)
-                                                   .append(". ")
-                                                   .append(fl.prettyFormat())
-                                                   .append("\n\n"));
-    return dAllFamilies.toString();
+    return dao.getAllFamilies().stream()
+            .map(family -> String.format("%s\n",family.prettyFormat()))
+            .collect(Collectors.joining());
   }
 
   public String getFamiliesBiggerThan(int count) {
