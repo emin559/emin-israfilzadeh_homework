@@ -64,7 +64,6 @@ public class CollectionFamilyDao implements DAO<Family> {
     File file = new File("src/main/java/hw13/database/db.txt");
 
     try {
-      new BufferedReader(new FileReader(file)).lines().collect(Collectors.toList());
       BufferedWriter bw = new BufferedWriter(new FileWriter(file));
 
       for (Family family : familyList) {
