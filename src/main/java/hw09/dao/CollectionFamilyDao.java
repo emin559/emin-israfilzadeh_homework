@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CollectionFamilyDao implements DAO<Family> {
-  List<Family> familyList = new ArrayList<>();
+  private List<Family> familyList = new ArrayList<>();
 
   @Override
   public List<Family> getAllFamilies() {
@@ -44,10 +44,10 @@ public class CollectionFamilyDao implements DAO<Family> {
 
   @Override
   public void saveFamily(Family family) {
-    if (familyList.contains(family)) {
-      var currentFamily = familyList.get(familyList.indexOf(family));
-      currentFamily = family;
-    } else {
+    int index = familyList.indexOf(family);
+    if(index != -1){
+      familyList.set(index,family);
+    } else{
       familyList.add(family);
     }
   }
