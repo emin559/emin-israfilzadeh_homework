@@ -29,47 +29,24 @@ public class FamilyService {
     return dao.getFamilyByIndex(index);
   }
 
-
   public String displayAllFamilies() {
     return dao.getAllFamilies().stream()
             .map(family -> String.format("%s\n",family.prettyFormat()))
             .collect(Collectors.joining());
   }
 
-  public String getFamiliesBiggerThan(int count) {
-    List<Family> biggerFamily = familyList.stream().filter(family -> family.countFamily() > count).collect(Collectors.toList());
+  public List<Family> getFamiliesBiggerThan(int count) {
+    return familyList.stream().filter(family -> family.countFamily() > count).collect(Collectors.toList());
 
-    StringBuilder biggerFamilies = new StringBuilder();
-    biggerFamily.forEach(fl -> biggerFamilies.append(getAllFamilies().indexOf(fl) + 1)
-            .append(". ")
-            .append(fl.prettyFormat())
-            .append("\n\n"));
-
-    return biggerFamilies.toString();
   }
 
-  public String getFamiliesLessThan(int count) {
-    List<Family> lessFamily = familyList.stream().filter(family -> family.countFamily() < count).collect(Collectors.toList());
+  public List<Family> getFamiliesLessThan(int count) {
+    return familyList.stream().filter(family -> family.countFamily() < count).collect(Collectors.toList());
 
-    StringBuilder lessFamilies = new StringBuilder();
-    lessFamily.forEach(fl -> lessFamilies.append(getAllFamilies().indexOf(fl) + 1)
-            .append(". ")
-            .append(fl.prettyFormat())
-            .append("\n\n"));
-
-    return lessFamilies.toString();
   }
 
-  public String countFamiliesWithMemberNumber(int count) {
-    List<Family> exactFamily = familyList.stream().filter(family -> family.countFamily() == count).collect(Collectors.toList());
-
-    StringBuilder exactFamilies = new StringBuilder();
-    exactFamily.forEach(fl -> exactFamilies.append(getAllFamilies().indexOf(fl) + 1)
-            .append(". ")
-            .append(fl.prettyFormat())
-            .append("\n\n"));
-
-    return exactFamilies.toString();
+  public List<Family> countFamiliesWithMemberNumber(int count) {
+    return familyList.stream().filter(family -> family.countFamily() == count).collect(Collectors.toList());
   }
 
   public void createNewFamily(Human man, Human woman) {

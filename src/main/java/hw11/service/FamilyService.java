@@ -26,7 +26,6 @@ public class FamilyService {
     return dao.getFamilyByIndex(index);
   }
 
-
   public String displayAllFamilies() {
     return dao.getAllFamilies().stream()
             .map(family -> String.format("%s\n",family))
@@ -34,21 +33,17 @@ public class FamilyService {
   }
 
   public List<Family> getFamiliesBiggerThan(int count) {
-    List<Family> biggerFamily = familyList.stream().filter(family -> family.countFamily() > count).collect(Collectors.toList());
+    return familyList.stream().filter(family -> family.countFamily() > count).collect(Collectors.toList());
 
-    return biggerFamily;
   }
 
   public List<Family> getFamiliesLessThan(int count) {
-    List<Family> lessFamily = familyList.stream().filter(family -> family.countFamily() < count).collect(Collectors.toList());
+    return familyList.stream().filter(family -> family.countFamily() < count).collect(Collectors.toList());
 
-    return lessFamily;
   }
 
   public List<Family> countFamiliesWithMemberNumber(int count) {
-    List<Family> exactFamily = familyList.stream().filter(family -> family.countFamily() == count).collect(Collectors.toList());
-
-    return exactFamily;
+    return familyList.stream().filter(family -> family.countFamily() == count).collect(Collectors.toList());
   }
 
   public void createNewFamily(Human man, Human woman) {
